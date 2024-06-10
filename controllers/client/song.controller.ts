@@ -32,7 +32,7 @@ export const list = async (req: Request, res: Response) => {
   console.log(songs);
 
   res.render("client/pages/songs/list", {
-    pageTitle: "Danh sách bài hát",
+    pageTitle: topic.title,
     topic: topic,
     songs: songs
   });
@@ -41,10 +41,27 @@ export const list = async (req: Request, res: Response) => {
 // [GET] /songs/detail/:slugSong
 export const detail = async (req: Request, res: Response) => {
   const slugSong: string = req.params.slugSong;
+  
+  const song = await Song.findOne({
+    slug: slugSong,
+    deleted: false,
+    status: "active"
+  });
 
-  console.log(slugSong);
+  const singer = await Singer.findOne({
+    _id: song.singerId,
+    deleted: false
+  }).select("fullName");
+
+  const topic = await Topic.findOne({
+    _id: song.topicId,
+    deleted: false
+  }).select("title");
 
   res.render("client/pages/songs/detail", {
-    pageTitle: "Chi tiết bài hát",
+    pageTitle: song.title,
+    song: song,
+    singer: singer,
+    topic: topic
   });
 };
