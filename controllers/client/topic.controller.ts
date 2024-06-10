@@ -10,6 +10,7 @@ export const index = async (req: Request, res: Response) => {
   console.log(topics);
 
   res.render("client/pages/topics/index", {
-    pageTitle: "Chủ đề bài hát"
+    pageTitle: "Chủ đề bài hát",
+    topics: topics
   });
 }
