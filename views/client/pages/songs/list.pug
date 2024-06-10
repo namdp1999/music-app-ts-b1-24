@@ -1,0 +1,54 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head.pug
+
+block main
+  .container.my-3
+    .row
+      .col-12
+        +box-head("Danh sách bài hát")
+
+    .row
+      .col-6.mb-3
+        div(class="song-item")
+          div(class="inner-image")
+            a(href="/songs/detail/:slugSong")
+              img(src="https://backend.daca.vn/assets/images/cat-doi-noi-sau.jpg")
+          div(class="inner-content")
+            div(class="inner-title")
+              a(href="/songs/detail/:slugSong") Cắt Đôi Nỗi Sầu
+            div(class="inner-singer") <i class="fa-solid fa-microphone-lines"></i> Tăng Duy Tân
+            div(class="inner-like") <i class="fa-solid fa-thumbs-up"></i> 1000
+            div(class="inner-time") <i class="fa-regular fa-clock"></i> Hôm nay
+      .col-6.mb-3
+        div(class="song-item")
+          div(class="inner-image")
+            a(href="/songs/detail/:slugSong")
+              img(src="https://backend.daca.vn/assets/images/ngay-mai-nguoi-ta-lay-chong.jpg")
+          div(class="inner-content")
+            div(class="inner-title")
+              a(href="/songs/detail/:slugSong") Ngày Mai Người Ta Lấy Chồng
+            div(class="inner-singer") <i class="fa-solid fa-microphone-lines"></i> Thành Đạt
+            div(class="inner-like") <i class="fa-solid fa-thumbs-up"></i> 1000
+            div(class="inner-time") <i class="fa-regular fa-clock"></i> Hôm nay
+      .col-6.mb-3
+        div(class="song-item")
+          div(class="inner-image")
+            a(href="/songs/detail/:slugSong")
+              img(src="https://backend.daca.vn/assets/images/tat-ca-hoac-khong-la-gi-ca.jpg")
+          div(class="inner-content")
+            div(class="inner-title")
+              a(href="/songs/detail/:slugSong") Tất Cả Hoặc Không Là Gì Cả
+            div(class="inner-singer") <i class="fa-solid fa-microphone-lines"></i> Cao Thái Sơn
+            div(class="inner-like") <i class="fa-solid fa-thumbs-up"></i> 1000
+            div(class="inner-time") <i class="fa-regular fa-clock"></i> Hôm qua
+      .col-6.mb-3
+        div(class="song-item")
+          div(class="inner-image")
+            a(href="/songs/detail/:slugSong")
+              img(src="https://backend.daca.vn/assets/images/ruou-mung-hoa-nguoi-dung.jpg")
+          div(class="inner-content")
+            div(class="inner-title")
+              a(href="/songs/detail/:slugSong") Rượu Mừng Hóa Người Dưng
+            div(class="inner-singer") <i class="fa-solid fa-microphone-lines"></i> TLong
+            div(class="inner-like") <i class="fa-solid fa-thumbs-up"></i> 1000
+            div(class="inner-time") <i class="fa-regular fa-clock"></i> Hôm qua
