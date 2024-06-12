@@ -54,22 +54,24 @@ if(buttonLike) {
 // End Button Like
 
 // Button Favorite
-const buttonFavorite = document.querySelector("[button-favorite]");
-if(buttonFavorite) {
-  buttonFavorite.addEventListener("click", () => {
-    const id = buttonFavorite.getAttribute("button-favorite");
-
-    const status = buttonFavorite.classList.contains("active") ? "unfavorite" : "favorite";
-    
-    fetch(`/songs/favorite/${status}/${id}`, {
-      method: "PATCH"
-    })
-      .then(res => res.json())
-      .then(data => {
-        if(data.code == 200) {
-          buttonFavorite.classList.toggle("active");
-        }
+const listButtonFavorite = document.querySelectorAll("[button-favorite]");
+if(listButtonFavorite.length > 0) {
+  listButtonFavorite.forEach(buttonFavorite => {
+    buttonFavorite.addEventListener("click", () => {
+      const id = buttonFavorite.getAttribute("button-favorite");
+  
+      const status = buttonFavorite.classList.contains("active") ? "unfavorite" : "favorite";
+      
+      fetch(`/songs/favorite/${status}/${id}`, {
+        method: "PATCH"
       })
+        .then(res => res.json())
+        .then(data => {
+          if(data.code == 200) {
+            buttonFavorite.classList.toggle("active");
+          }
+        })
+    })
   })
 }
 // End Button Favorite
