@@ -6,6 +6,7 @@ import adminRoutes from "./routes/admin/index.route";
 import clientRoutes from "./routes/client/index.route";
 import { systemConfig } from "./config/system";
 import path from "path";
+import bodyParser from "body-parser";
 
 connect();
 
@@ -16,6 +17,9 @@ app.set("views", "./views");
 app.set("view engine", "pug");
 
 app.use(express.static("public"));
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
 
 // TinyMCE
 app.use(
