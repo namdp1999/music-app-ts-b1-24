@@ -149,3 +149,30 @@ export const favorite = async (req: Request, res: Response) => {
     favoriteSongs: favoriteSongs
   });
 }
+
+// [PATCH] /listen/:songId
+export const listenPatch = async (req: Request, res: Response) => {
+  const songId = req.params.songId;
+
+  const song = await Song.findOne({
+    _id: songId,
+    status: "active",
+    deleted: false
+  });
+
+  const listenUpdate = song.listen + 1;
+
+  await Song.updateOne({
+    _id: songId,
+    status: "active",
+    deleted: false
+  }, {
+    listen: listenUpdate
+  });
+
+  res.json({
+    code: 200,
+    message: "Đã cập nhật số lượt nghe!",
+    listen: listenUpdate
+  });
+};
