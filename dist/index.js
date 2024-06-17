@@ -17,9 +17,9 @@ var method_override_1 = __importDefault(require("method-override"));
 var app = (0, express_1.default)();
 var port = "".concat(process.env.PORT) || 3000;
 app.use((0, method_override_1.default)('_method'));
-app.set("views", "./views");
+app.set('views', "".concat(__dirname, "/views"));
 app.set("view engine", "pug");
-app.use(express_1.default.static("public"));
+app.use(express_1.default.static("".concat(__dirname, "/public")));
 // parse application/x-www-form-urlencoded
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 // TinyMCE
