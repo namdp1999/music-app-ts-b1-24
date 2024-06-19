@@ -51,6 +51,7 @@ var index = function (req, res) { return __awaiter(void 0, void 0, void 0, funct
                 })];
             case 1:
                 topics = _a.sent();
+                console.log("topics", topics);
                 res.render("admin/pages/topics/index", {
                     pageTitle: "Quản lý chủ đề",
                     topics: topics
